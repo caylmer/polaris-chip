@@ -11,15 +11,17 @@
     :root,
     html,
     body {
-      margin: 0;
-      padding: 0;
+      margin: 100;
+      padding: 200;
       font-family: sans-serif;
-      background-color: #ededed;
+      background-color: brown;
+      
     }
     polaris-chip {
       margin: 16px;
     }
   </style>
+  
   <title>polaris-chip / my-card</title>
 </head>
 
@@ -32,7 +34,15 @@
   <polaris-chip title="Grants and donations"></polaris-chip>
 
   <h1>my-card</h1>
-  <my-card></my-card>
+  <my-card
+  title = "LeBron James"
+  image = "https://i1.sndcdn.com/artworks-000116719590-pmrtyu-t500x500.jpg" 
+  link = "https://en.wikipedia.org/wiki/LeBron_James">
+  <p>LeBron Raymone James Sr. is an American professional basketball player for the Los Angeles Lakers of the National Basketball Association (NBA). He is widely considered one of the greatest players in NBA history.</p>
+  </my-card>
+  <my-card image = "https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg" title = "GOAT"></my-card>
+  <my-card image = "https://media.gq.com/photos/5b636b5e96a50116e4cc494d/1:1/w_2327,h_2327,c_limit/LebronJamesGreySuit.jpg" title = "Smart Bron"></my-card>
+  <my-card image = "https://www.cantonrep.com/gcdn/authoring/authoring-images/2024/09/12/NREP/75198425007-100713-akron-36.JPG?width=660&height=1007&fit=crop&format=pjpg&auto=webp" title ="Young Bron"></my-card>
 
   <!-- this is what is bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>

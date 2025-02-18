@@ -23,6 +23,19 @@ export class MyCard extends LitElement {
 
   static get styles() {
     return css`
+    :host {
+      display: inline-block;
+      margin: 8px;
+      border: 5px solid black;
+      
+    }
+    :host([fancy]) .card {
+      display: block;
+      background-color: yellow;
+      border: 5px black;
+      box-shadow: 10px 5px 5px red;
+      color: red;
+}
       .card {
   background-color: orange;
   height: 600px;
@@ -36,6 +49,9 @@ h1 {
   text-align: center;
 }
 p {
+  text-align: center;
+}
+summary {
   text-align: center;
 }
 .btn {
@@ -79,12 +95,12 @@ p {
     
 <div id="cardlist">
   <div class="wrapper">
-  <div class="card">
-  <a href="https://hax.psu.edu">
-  <button class="btn">details</button></a>
-  <h1>Lebron James</h1>
-  <p>This is the greatest basketball player to ever exist.</p>
-  <img src="https://i1.sndcdn.com/artworks-000116719590-pmrtyu-t500x500.jpg" alt="LeBron" style="width:400px;height:415px;">
+    <div class="card">
+    <h1 class="cardheader"><b>${this.title}</b></h1>
+      <a href=${this.link}>
+        <button class="btn">details</button></a>
+          <summary>${this.summary}</summary>
+            <img src=${this.image} alt="LeBron" style="width:400px;height:415px;">
 
   </div>
   </div>
@@ -96,6 +112,9 @@ p {
     return {
       title: { type: String },
       image: { type: String },
+      link: { type: String },
+      summary: { type: String },
+      fancy: { type: Boolean, reflect: true },
     };
   }
 }

@@ -21,6 +21,11 @@ export class MyCard extends LitElement {
     this.link = "#";
     this.fancy = false;
   }
+  static get properties() {
+    return {
+      fancy: { type: Boolean, reflect: true }
+    };
+  }
 
   static get styles() {
     return css`
@@ -90,7 +95,15 @@ summary {
 }
     `;
   }
-
+  openChanged(e) {
+    console.log(e.newState);
+    if (e.newState === "open") {
+      this.fancy = true;
+    }
+    else {
+      this.fancy = false;
+    }
+  }
   render() {
     return html`
     
@@ -101,7 +114,11 @@ summary {
       <a href=${this.link}>
         <button class="btn">details</button></a>
           <summary>${this.summary}</summary>
+          <div>
+            <slot>${this.summary}</slot>
+          </div>
             <img src=${this.image} alt="LeBron" style="width:400px;height:415px;">
+            <details ?open="${this.fancy}" @toggle="${this.openChanged}"></details>
 
   </div>
   </div>
